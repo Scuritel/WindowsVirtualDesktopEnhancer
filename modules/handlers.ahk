@@ -1,3 +1,5 @@
+#Include, %A_ScriptDir%/modules/popups.ahk
+
 getN() {
     Local n := substr(A_ThisHotkey, 0, 1)
 
@@ -11,6 +13,7 @@ getN() {
 ; VD.createUntil(3)
 onDesktopSwitch() {
     n := getN()
+    invokePopup(n)
     VD.goToDesktopNum(n)
 }
 
@@ -21,4 +24,10 @@ onMoveWindow() {
 
 onPinWindow() {
     VD.TogglePinWindow("A")
+}
+
+invokePopup(n) {
+    if (settings.popup.enable) {
+        Popup("Desktop" n)
+    }
 }

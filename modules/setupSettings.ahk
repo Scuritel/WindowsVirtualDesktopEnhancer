@@ -52,6 +52,7 @@ defSettingsStr =
 (
 {
     "popup": {
+        "enable": 1,
         "position": {
             "x": "CENTER",
             "y": "CENTER"
@@ -59,7 +60,7 @@ defSettingsStr =
         "font": {
             "size": 11,
             "color": "0xFFFFFF",
-            "bold": true
+            "bold": 1
         },
         "durations": {
             "fadeIn": 20,
@@ -67,7 +68,7 @@ defSettingsStr =
             "fadeOut": 70
         },
         "backgroundColor": "0x1F1F1F",
-        "everyMonitor": false
+        "everyMonitor": 0
     },
     
     "shortcuts": {
@@ -84,6 +85,10 @@ defaultSettings := Jxon_Load(defSettingsStr)
 
 ; TODO: check color vals
 if settings.HasKey("popup") {
+    if not settings.popup.HasKey("enable") or not HasVal([0, 1], settings.popup.enable) {
+        settings.popup.enable := defaultSettings.popup.enable
+    }
+
     if settings.popup.HasKey("position") {
         if not HasVal(["LEFT", "CENTER", "RIGHT"], settings.popup.position.x) {
             settings.popup.position.x := defaultSettings.popup.position.x
@@ -103,7 +108,7 @@ if settings.HasKey("popup") {
         if not settings.popup.HasKey("color") {
             settings.popup.font.color := defaultSettings.popup.font.color
         }
-        if not settings.popup.HasKey("bold") or not HasVal([false, true], settings.popup.font.bold) {
+        if not settings.popup.HasKey("bold") or not HasVal([0, 1], settings.popup.font.bold) {
             settings.popup.font.bold := defaultSettings.popup.font.bold
         }
     }
@@ -113,8 +118,8 @@ if settings.HasKey("popup") {
 
     if not settings.popup.HasKey("backgroundColor") {
         settings.popup.backgroundColor := defaultSettings.popup.backgroundColor
-    }
-    if not settings.popup.HasKey("everyMonitor") or HasVal([false, true], settings.popup.everyMonitor) {
+    }    
+    if not settings.popup.HasKey("everyMonitor") or HasVal([0, 1], settings.popup.everyMonitor) {
         settings.popup.everyMonitor := defaultSettings.popup.everyMonitor
     }
 }

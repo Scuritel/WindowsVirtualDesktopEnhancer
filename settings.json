@@ -1,5 +1,6 @@
 {
     "popup": {
+        "enable": 1,
         "position": {
             "x": "CENTER",
             "y": "CENTER"
@@ -7,7 +8,7 @@
         "font": {
             "size": 11,
             "color": "0xFFFFFF",
-            "bold": true
+            "bold": 1
         },
         "durations": {
             "fadeIn": 20,
@@ -15,7 +16,7 @@
             "fadeOut": 70
         },
         "backgroundColor": "0x1F1F1F",
-        "everyMonitor": false
+        "everyMonitor": 0
     },
     
     "shortcuts": {
