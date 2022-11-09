@@ -1,3 +1,6 @@
 [submodule "VD.ahk"]
 	path = VD.ahk
 	url = https://github.com/FuPeiJiang/VD.ahk
+[submodule "AutoHotkey-JSON"]
+	path = AutoHotkey-JSON
+	url = https://github.com/cocobelgica/AutoHotkey-JSON
