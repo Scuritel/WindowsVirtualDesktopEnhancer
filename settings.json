@@ -1,0 +1,28 @@
+{
+    "popup": {
+        "position": {
+            "x": "CENTER",
+            "y": "CENTER"
+        },
+        "font": {
+            "size": 11,
+            "color": "0xFFFFFF",
+            "bold": true
+        },
+        "durations": {
+            "fadeIn": 20,
+            "lifetime": 80,
+            "fadeOut": 70
+        },
+        "backgroundColor": "0x1F1F1F",
+        "everyMonitor": false
+    },
+    
+    "shortcuts": {
+        "desktopsModifiers": {
+            "switcher": "Win",
+            "moveWindow": "Win+Shift"
+        },
+        "pinWindow": "Win+Shift+F"
+    }
+}
