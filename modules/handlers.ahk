@@ -8,6 +8,7 @@ onDesktopSwitch() {
     createDesktopsIfNeed(n)
     VD.goToDesktopNum(n)
     removeUnusedLastDesktops(n)
+    ChangeTrayText(n)
     invokePopup(n)
 }
 
