@@ -10,9 +10,9 @@ onDesktopSwitch() {
 onDesktopSwitchN(n) {
     createDesktopsIfNeed(n)
     VD.goToDesktopNum(n)
-    removeUnusedLastDesktops(n)
     ChangeTrayText(n)
     invokePopup(n)
+    removeUnusedLastDesktops(n)
 }
 
 onMoveWindow() {

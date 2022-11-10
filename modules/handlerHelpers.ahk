@@ -50,7 +50,8 @@ removeUnusedLastDesktops(n) {
     usedDesktops := getUsedDesktops()
     mx := Max(usedDesktops*)
     desktopCount := VD.getCount()
-    i := (mx > n ? mx : n) + 1
+    lastUsedDesktop := mx > n ? mx : n
+    i := lastUsedDesktop
     while (i < desktopCount) {
         VD.removeDesktop(lastUsedDesktop + 1)
         i := i + 1
