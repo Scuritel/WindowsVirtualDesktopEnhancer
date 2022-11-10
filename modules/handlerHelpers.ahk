@@ -17,22 +17,40 @@ createDesktopsIfNeed(n) {
     }
 }
 
-removeUnusedLastDesktops(n) {
+RmvDuplic(object) {
+    secondobject:=[]
+    Loop % object.Length()
+    {
+        value:=Object.RemoveAt(1) ; otherwise Object.Pop() a little faster, but would not keep the original order
+        Loop % secondobject.Length()
+            If (value=secondobject[A_Index])
+                Continue 2 ; jump to the top of the outer loop, we found a duplicate, discard it and move on
+        secondobject.Push(value)
+    }
+    return secondobject
+}
+
+getUsedDesktops() {
     DetectHiddenWindows On
     WinGet, id, List
-    lastUsedDesktop := n
+    ud := []
     Loop %id%
     {
         hwnd := id%A_Index%
         ;VD.getDesktopNumOfWindow will filter out invalid windows
         desktopNum_ := VD.getDesktopNumOfWindow("ahk_id" hwnd) ;-1 for invalid window, 0 for "Show on all desktops", 1 for Desktop 1
         If (desktopNum_ > -1) {
-            lastUsedDesktop := lastUsedDesktop < desktopNum_ ? desktopNum_ : lastUsedDesktop
+            ud.Push(desktopNum_)
         }
     }
+    return RmvDuplic(ud)
+}
 
+removeUnusedLastDesktops(n) {
+    usedDesktops := getUsedDesktops()
+    mx := Max(usedDesktops*)
     desktopCount := VD.getCount()
-    i := lastUsedDesktop
+    i := (mx > n ? mx : n) + 1
     while (i < desktopCount) {
         VD.removeDesktop(lastUsedDesktop + 1)
         i := i + 1

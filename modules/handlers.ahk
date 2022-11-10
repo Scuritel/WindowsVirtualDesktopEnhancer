@@ -5,6 +5,9 @@
 ; VD.createUntil(3)
 onDesktopSwitch() {
     n := getN()
+    onDesktopSwitchN(n)
+}
+onDesktopSwitchN(n) {
     createDesktopsIfNeed(n)
     VD.goToDesktopNum(n)
     removeUnusedLastDesktops(n)
