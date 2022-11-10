@@ -20,3 +20,5 @@ SetControlDelay -1
 #Include, %A_ScriptDir%/modules/setupSettings.ahk
 
 #Include, %A_ScriptDir%/modules/shortcuts.ahk
+
+; TODO: tray icon

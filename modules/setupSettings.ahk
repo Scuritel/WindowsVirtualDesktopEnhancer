@@ -9,7 +9,7 @@ HasVal(haystack, needle) {
 	return 0
 }
 
-normModifiers(str, defValue) {
+normModifiers(str, defValue, onlyModifiers = true) {
     arrayS := Object(),                     arrayR := Object()
     arrayS.Insert("\s*|,"),                 arrayR.Insert("")
     arrayS.Insert("L(Ctrl|Shift|Alt|Win)"), arrayR.Insert("<$1")
@@ -131,7 +131,7 @@ if settings.HasKey("shortcuts") {
     if settings.shortcuts.HasKey("desktopsModifiers") {
         settings.shortcuts.desktopsModifiers.switcher := normModifiers(settings.shortcuts.desktopsModifiers.switcher, defaultSettings.shortcuts.desktopsModifiers.switcher)
         settings.shortcuts.desktopsModifiers.moveWindow := normModifiers(settings.shortcuts.desktopsModifiers.moveWindow, defaultSettings.shortcuts.desktopsModifiers.moveWindow)
-        ; TODO: check pin window shortcut
+        settings.shortcuts.pinWindow := normModifiers(settings.shortcuts.pinWindow, defaultSettings.shortcuts.pinWindow, false)
     }
     else {
         settings.shortcuts.desktopsModifiers := defaultSettings.shortcuts.desktopsModifiers

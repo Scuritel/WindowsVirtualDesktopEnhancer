@@ -15,4 +15,4 @@ while i < 10 {
     i := i + 1
 }
 
-; setShortcut(settings.shortcuts.desktopsModifiers.pinWindow, "onPinWindow")
+setShortcut(settings.shortcuts.pinWindow, "onPinWindow")
