@@ -16,3 +16,5 @@ while i < 10 {
 }
 
 setShortcut(settings.shortcuts.pinWindow, "onPinWindow")
+
+setShortcut(settings.shortcuts.closeWindow, "onCloseWindow")

@@ -76,6 +76,7 @@ defSettingsStr =
             "switcher": "Win",
             "moveWindow": "Win+Shift"
         },
+        "closeWindow": "Win+Shift+Q",
         "pinWindow": "Win+Shift+F"
     }
 }
@@ -132,6 +133,7 @@ if settings.HasKey("shortcuts") {
         settings.shortcuts.desktopsModifiers.switcher := normModifiers(settings.shortcuts.desktopsModifiers.switcher, defaultSettings.shortcuts.desktopsModifiers.switcher)
         settings.shortcuts.desktopsModifiers.moveWindow := normModifiers(settings.shortcuts.desktopsModifiers.moveWindow, defaultSettings.shortcuts.desktopsModifiers.moveWindow)
         settings.shortcuts.pinWindow := normModifiers(settings.shortcuts.pinWindow, defaultSettings.shortcuts.pinWindow, false)
+        settings.shortcuts.closeWindow := normModifiers(settings.shortcuts.closeWindow, defaultSettings.shortcuts.closeWindow, false)
     }
     else {
         settings.shortcuts.desktopsModifiers := defaultSettings.shortcuts.desktopsModifiers

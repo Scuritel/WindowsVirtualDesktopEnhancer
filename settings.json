@@ -24,6 +24,7 @@
             "switcher": "Win",
             "moveWindow": "Win+Shift"
         },
+        "closeWindow": "Win+Shift+Q",
         "pinWindow": "Win+Shift+F"
     }
 }
